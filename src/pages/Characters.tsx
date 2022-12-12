@@ -12,18 +12,17 @@ function Characters() {
 
 
   return (
-    <div className="App" style={{marginTop:20, marginBottom:10}}>
+    <div className="App" style={{marginTop:40, marginBottom:10}}>
         <div>
           {isFetching && <CircularProgress color='secondary'/>}
           {data?.results.map((character) => (
             <CharacterListItem character={character} />
           ))}
         </div>
-        <Stack spacing={4} direction="row"     justifyContent="space-evenly">
+        <Stack spacing={4} direction="row" justifyContent="space-evenly">
         {data?.previous && <Button onClick={() => setPage(page-1)}  color="secondary" variant="outlined">Prev</Button>}
         {data?.next && <Button onClick={() => setPage(page+1)}  color="secondary" variant="outlined">Next</Button>}
         </Stack>
-
 
     </div>
   )
