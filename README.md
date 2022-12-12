@@ -26,4 +26,4 @@ To install and run the application the process is still the same, after cloning 
 Both install and run dev should finish significantly faster than with an aplication that uses create-react-app    
 ## GIF Demo
 
-![](https://s9.gifyu.com/images/SWAPI-demo.gif)
+![Demo Gif](https://s9.gifyu.com/images/SWAPI-demo.gif)
