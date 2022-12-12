@@ -14,8 +14,7 @@ interface CharacterProps {
     character: Character,
 }
 
-
-export default function CharacterListItem({character}:CharacterProps){
+export default function CharacterListItem({ character }: CharacterProps){
 
     const dispatch = useAppDispatch();
     const favourites = useAppSelector((state) => state.favourites.favourites);
@@ -23,7 +22,7 @@ export default function CharacterListItem({character}:CharacterProps){
     const [openUnfav, setOpenUnfav] = useState(false);
 
 
-    const handleClick = (fav:boolean) => {
+    const handleClick = (fav: boolean) => {
         if(fav){
             setOpenFav(true);
         }else{
@@ -88,7 +87,7 @@ export default function CharacterListItem({character}:CharacterProps){
       );
       
 
-    function renderButton (c:Character){
+    function renderButton (c: Character){
         if (favourites.find(character => character.name === c.name) === undefined) { 
             return (<IconButton onClick={() => {dispatch(favourite(c));handleClick(true)}}><FavoriteBorderIcon fontSize="small" color="secondary"/></IconButton>)
         }   

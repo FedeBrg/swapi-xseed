@@ -2,13 +2,13 @@ import '../App.css'
 import { useAppSelector } from '../app/hooks'
 import { Character } from '../models/Character'
 import { useState } from 'react'
-import { Grid, TextField } from '@mui/material'
+import { Box, Grid, TextField } from '@mui/material'
 import CharacterListItem from '../components/CharacterListItem'
 
 function Favourites() {
 
   const [searchFav, setSearchFav] = useState("");
-  const favourites = useAppSelector((state) => state.favourites.favourites);
+  const { favourites } = useAppSelector((state) => state.favourites);
   const filterFavourites = applyFilters(favourites,searchFav);
 
   return (
@@ -23,9 +23,13 @@ function Favourites() {
         <Grid item >
       <TextField focused fullWidth color="secondary" id="outlined-basic" label="Search"  value={searchFav} onChange={(event) => {setSearchFav(event.target.value)}} />
       </Grid>
+      <Box>
           {filterFavourites.map((character) => (
-            <CharacterListItem character={character} />
+            <Box>
+              <CharacterListItem character={character} />
+            </Box>
           ))}
+          </Box>
     </Grid>
 
   )
@@ -35,6 +39,6 @@ function Favourites() {
 export default Favourites;
 
 
-function applyFilters(favourites:Character[], search:string): Character[]{
+function applyFilters(favourites: Character[], search: string): Character[]{
   return favourites.filter((character) => character.name.toLowerCase().includes(search.toLowerCase()));
 }

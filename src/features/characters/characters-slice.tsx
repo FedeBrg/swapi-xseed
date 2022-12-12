@@ -15,13 +15,6 @@ export const characterApiSlice = createApi({
                 query(page="1"){
                     return `/people?page=${page}`;
                 },
-                //transformResponse: (response:Results) => {var arr = response.results.map(async person => {
-                  //  return await axios.get(person.homeworld)
-                  //    .then(result => ({...person, homeworld: result.data.name}))
-                  //})
-                  //console.log(Promise.all(arr).then(r => console.log(r)));
-                  //return Promise.all(arr).then(r => {return {...response,results:r}});
-                //}
             }),
             fetchPlanet: builder.query<Planet,string>({
                 query(id){

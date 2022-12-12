@@ -3,10 +3,10 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Chip } from "@mui/material";
 
 interface HomeworldProps{
-    id:string
+    id: string
 }
 
- export function Homeworld({id}:HomeworldProps): JSX.Element{
+ export function Homeworld({ id }: HomeworldProps): JSX.Element{
     
     const { data } = useFetchPlanetQuery(id.split("/")[5]);
 
